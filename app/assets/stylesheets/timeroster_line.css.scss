@@ -1,0 +1,62 @@
+#calculator {
+  background: white top center no-repeat;
+  margin: 0 auto 30px auto;
+  width: 420px;
+  height: 250px;
+}
+fieldset.workdate {
+  display: block;
+  width: auto;
+  position: relative;
+}
+fieldset.gotime {
+  float: left;
+  display: block;
+  width: 180px;
+  position: relative;
+}
+fieldset.quittime {
+  float: right;
+  display: block;
+  width: 180px;
+  position: relative;
+}
+#calculator label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: left;
+  color: #605A4E;
+}
+#calculator .gotime input {
+  width: 95px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  padding-right: 5px;
+  border: 3px solid #605A4E;
+  -webkit-border-radius: 8px 8px;
+  -moz-border-radius: 8px 8px;
+  border-radius: 8px 8px;
+  text-align: right;
+  font: 30px Georgia, Times, serif;
+  color: #413C32;
+  background-color: white;
+}
+#calculator .quittime input {
+  width: 95px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  padding-right: 5px;
+  border: 3px solid #605A4E;
+  -webkit-border-radius: 8px 8px;
+  -moz-border-radius: 8px 8px;
+  border-radius: 8px 8px;
+  text-align: right;
+  font: 30px Georgia, Times, serif;
+  color: #413C32;
+  background-color: white;
+}

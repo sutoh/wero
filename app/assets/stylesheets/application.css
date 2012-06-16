@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+/* Body Element */
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+body {
+   -webkit-font-smoothing: antialiased;
+  display: block;
+}
+div {
+  display: block;
+}
+html, body, .non-footer { height: 100%; }
+body > .non-footer {
+  height: auto;
+  min-height: 100%;
+}
+/* Main Element */
+#site {
+  padding-bottom: 100px;
+}
+#page {
+  margin: 0 auto;
+  width: 984px;
+}
+#page::before {
+  content: '';
+  left: 0;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -100;
+  background: #4BA3E9;
+}
+.clearfix::before, .clearfix::after {
+	content: '.';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+}
+/* header Element */
+header {
+  padding: 12px 0;
+  position: relative;
+}
+header li {
+  list-style: none;
+}
+header nav li {
+  display: inline;
+  padding-right: 12px;
+}
+nav li a {
+  font-size: 18px;
+  text-transform: lowercase;
+  color: white;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+/* image h1 */
+/* 
+h1 a {
+  background: transparent url('/assets/hlogo.png') 0 0 no-repeat;
+  background-size: 217px 40px;
+  display: block;
+  height: 40px;
+  text-indent: -9999px;
+  width: 217px;
+}
+*/
+/* chara h1 */
+h1 {
+  margin: 6px 0;
+  color: white;
+  font-family: 'Graduate', cursive;
+}
+h1 a {
+  background: transparent 0 0 no-repeat;
+  background-size: 217px 40px;
+  display: block;
+  height: 15px;
+  width: 217px;
+  color: white;
+}
+.features {
+}
+/* footer Element */
+footer {
+	background: #4ea6ea;
+	font-size: 12px;
+	color: #636363;
+	padding-top: 10px;
+	position: relative;
+	margin-top: -100px;
+	height: 100px;
+	clear: both;
+}
+.lower_footer {
+  color: white;
+  font-size: 14px;
+  margin: 0 auto;
+  padding: 12px 24px 24px 0px;
+  width: 984px;
+}
+.inner {
+	position: relative;
+	width: 984px;
+	margin: 0 auto;
+}
+
+/* footer logo Start*/
+/* image Type */
+/*
+footer #legal .logo {
+  float: left;
+  padding: 0 48px 0 0;
+}
+footer .logo {
+	display: block;
+	width: 165px;
+	height: 64px;
+	background: url("/assets/flogo.png") no-repeat;
+	background-size: 155px 64px;
+	margin-right: 16px;
+	text-indent: -5000px;
+}
+*/
+/* Chats Type */
+/* Google WebFont */
+footer .clogo {
+  display: block;
+}
+footer #legal .clogo {
+  color: white;
+  float: left;
+  padding: 0 48px 0 0;
+}
+footer #legal .cLarge_logo {
+  font-family: 'Graduate', cursive;
+  font-size: large;
+}
+footer #legal .cSmall_logo {
+  font-family: 'Graduate', cursive;
+  font-size: smaller;
+}
+/* footer logo end */
+
+/* footer list type */
+
+footer #legal li a {
+  color: white;
+}
+footer li {
+  list-style: none;
+}
+footer #legal li {
+  display: inline;
+  padding-right: 12px;
+}
+/* footer list type */

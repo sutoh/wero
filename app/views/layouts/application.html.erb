@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wero</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <!-- Google Web Font -->
+  <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+  <div class="non-footer">
+    <div id="site">
+      <div id="page">
+        <header>
+          <h1>
+            <a href="/">Wero:TimeRoster</a>
+          </h1>
+          <nav>
+          	<% if session[:user_id] %>
+            <ul>
+              <li>
+              	<%= link_to("Line", root_path)%>
+              </li>
+              <li>
+              	<%= link_to("TimeRosters", time_rosters_path)%>
+              </li>
+
+              <li>
+              		<%= link_to("Logout", logout_path, method: :delete	)%>
+              </li>
+              <li>
+                <a href="help">Help</a>
+              </li>
+            </ul> 
+            <% else %>
+              <ul>                       
+                <li>
+              		<%= link_to("Login", login_path)%>
+                </li>
+              </ul>
+            <% end %>
+          </nav>
+        </header>
+        <div class="features">
+          <%= yield %>  
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>  
+    <div class="lower_footer">
+      <div class="inner clearfix">
+        <div id="legal">
+          <!--
+          <a class="logo" href="http://www.human-net.co.jp/">Go to Human-net.co.jp</a>
+          -->
+          <a class="clogo" href="http://www.human-net.co.jp/">
+            <div class="cLarge_logo">
+              <em>Human NetWork</em>
+            </div>
+            <div class="cSmall_logo">
+              <em>total solution provider</em>
+            </div>
+          </a>
+          <ul>
+            <li><a href="http://github.com/blog">The Rubeus Blog</a></li>
+            <li><a href="mailto:rubeus@human-net.co.jp">Support</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <p>&copy; 2012 HumanNetwork Inc. All rights reserved.</p>
+        </div><!-- /#legal or /#legal_ie-->
+      </div>
+    </div><!-- /.lower_footer -->
+  </footer>
+  
+</body>
+</html>

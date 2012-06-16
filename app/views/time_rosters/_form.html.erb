@@ -1,0 +1,29 @@
+﻿<%= form_for(@time_roster) do |f| %>
+  <% if @time_roster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@time_roster.errors.count, "error") %> prohibited this time_roster from being saved:</h2>
+
+      <ul>
+      <% @time_roster.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :work_date %><br />
+    <%= f.date_select :work_date %>
+  </div>
+  <div class="field">
+    <%= f.label :going_work_time %><br />
+    <%= f.text_field :going_work_time , :value => "9:00", :size => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :quit_work_time %><br />
+    <%= f.text_field :quit_work_time , :value => Time.now.strftime("%H:%M") ,:size => 10 %>
+		<input type="text" id="defaultEntry" size="10"></p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

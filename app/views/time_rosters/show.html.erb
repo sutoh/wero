@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Work date:</b>
+  <%= @time_roster.work_date %>
+</p>
+
+<p>
+  <b>Going work time:</b>
+  <%= @time_roster.going_work_time %>
+</p>
+
+<p>
+  <b>Quit work time:</b>
+  <%= @time_roster.quit_work_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_roster_path(@time_roster) %> |
+<%= link_to 'Back', time_rosters_path %>
