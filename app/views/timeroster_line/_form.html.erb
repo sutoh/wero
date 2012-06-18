@@ -3,7 +3,12 @@
   
   <fieldset class="workdate">
     <%= f.label :work_date %>
-    <%= f.date_select :work_date %>
+    <%= select_year Time.now,{:prefix=>"time_roster", :field_name=>"work_date(1i)", :start_year=>Time.now.year, :end_year=>Time.now.year+2} %>
+    <div class="sblabel">年</div>
+    <%= select_month Time.now, :prefix=>"time_roster", :field_name=>"work_date(2i)", :use_month_numbers=>true %>
+    <div class="sblabel">月</div>
+    <%= select_day Time.now, :prefix=>"time_roster",:field_name=>"work_date(3i)" %>
+    <div class="sblabel">日</div>
   </fieldset>
   <fieldset class="gotime">
       <%= f.label :going_work_time %>

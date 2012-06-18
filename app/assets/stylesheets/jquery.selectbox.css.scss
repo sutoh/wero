@@ -11,14 +11,22 @@
   font: 20px Georgia, Times, serif;
   height: 30px;
   position: relative;
-  width: 110px;
-  margin-right: 10px;
+  width: 90px;
+  margin-right: auto;
   -webkit-border-radius: 8px 8px;
   -moz-border-radius: 8px 8px;
   border-radius: 8px 8px;
   -moz-box-shadow: 0 2px 1px #9c9c9c;
   -webkit-box-shadow: 0 2px 1px #9c9c9c;
   box-shadow: 0 2px 1px #9c9c9c;
+}
+.sblabel{
+  float: left;
+  font: 20px Georgia, Times, serif;
+  height: 25px;
+  margin-top: 5px;
+  margin-right: 5px;
+  position: relative;
 }
 .sbSelector{
   display: block;
@@ -30,7 +38,7 @@
   position: absolute;
   text-indent: 10px;
   top: 0;
-  width: 110px;
+  width: 90px;
 }
 .sbSelector:link, .sbSelector:visited, .sbSelector:hover{
   color: #EBB52D;
@@ -75,7 +83,7 @@
   padding: 0;
   position: absolute;
   top: 30px;
-  width: 110px;
+  width: 90px;
   z-index: 1;
   overflow-y: auto;
 }
