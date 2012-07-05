@@ -5,7 +5,12 @@ class TimerosterLineController < ApplicationController
   def index
     @test = TimeRoster.find(:all)
     @time_add = TimeRoster.new
-
+    
+    
+    @month = (params[:month] || (Time.zone || Time).now.month).to_i
+    @year = (params[:year] || (Time.zone || Time).now.year).to_i
+    @shown_month = Date.civil(@year, @month)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @time_roster }
