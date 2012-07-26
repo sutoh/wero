@@ -1,4 +1,6 @@
 Wero::Application.routes.draw do
+  devise_for :users
+
   #get "admin/index"
   get 'admin' => 'admin/index'
   controller :sessions do
@@ -20,6 +22,8 @@ Wero::Application.routes.draw do
   resources :time_rosters
   
   root :to => "timeroster_line#index"
+  
+  devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

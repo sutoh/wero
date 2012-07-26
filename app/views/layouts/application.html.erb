@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
   <title>Wero</title>
   <%= stylesheet_link_tag  "application", :media => "all" %>
   <!-- Google Web Font -->
@@ -9,6 +9,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="contents">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
   
   <div class="non-footer">
     <div id="site">
@@ -18,7 +22,7 @@
             <a href="/">Wero:TimeRoster</a>
           </h1>
           <nav>
-          	<% if session[:user_id] %>
+          	<% if current_user %>
             <ul>
               <li>
               	<%= link_to("Line", root_path)%>
@@ -28,7 +32,7 @@
               </li>
 
               <li>
-              		<%= link_to("Logout", logout_path, method: :delete	)%>
+              		<%= link_to("Logout", :destroy_user_session , method: :delete	)%>
               </li>
               <li>
                 <a href="help">Help</a>
@@ -37,7 +41,10 @@
             <% else %>
               <ul>                       
                 <li>
-              		<%= link_to("Login", login_path)%>
+              		<%= link_to("Login", :new_user_session)%>
+                </li>
+                <li>
+              		<%= link_to("Create User", :user_registration, method: :new)%>
                 </li>
               </ul>
             <% end %>

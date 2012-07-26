@@ -1,8 +1,11 @@
 class TimerosterLineController < ApplicationController
 
+  before_filter :authenticate_user!
+  
   # GET /time_rosters
   # GET /time_rosters.json
   def index
+     
     @test = TimeRoster.find(:all)
     @time_add = TimeRoster.new
 
