@@ -43,18 +43,18 @@ module TimerosterLineHelper
     cal = ""
     
     # outer calendar container
-    cal << %(<div id="time-table" class="table ct-calendar">)
+    cal << %(<div id="et-table">)
     # month header add
     if options[:show_month_header]
-      cal << %(<table class="et-calendar-month-header" cellpadding="0" cellspacing="0">)
+      cal << %(<table class="et-calendar-month-header table ct-calendar" cellpadding="0" cellspacing="0">)
       cal << %(<tbody><tr>)
       cal << %(<td colspan="2" class="ct-month-nav ct-previous-month">#{options[:previous_month_text]}</td>)
-      cal << %(<td colspan="3" class="ct-month-name">#{options[:month_name_text]}</td>)
+      cal << %(<td colspan="6" class="ct-month-name">#{options[:month_name_text]}</td>)
       cal << %(<td colspan="2" class="ct-month-nav ct-next-month">#{options[:next_month_text]}</td>)
       cal << %(</tr></tbody></table>)
     end
     # body container header
-    cal << %(<table class="et-calendar-header table table-bordered" cellpadding="0" cellspacing="0">)
+    cal << %(<table id="et-calendar" class="table table-bordered dataTable" cellpadding="0" cellspacing="0">)
     cal << %(<thead><tr><th class="ct-working_date-header">)
     cal << %(日付)
     cal << %(</th>)
@@ -97,7 +97,7 @@ module TimerosterLineHelper
       elsif day_of_the_week == 6
         cal << %(background-color: rgb(204,255,255); color: blue; )
       end
-      cal << %(">)
+      cal << %(" >)
       cal << %(<td class="et-days" style="text-align: center;">)
       cal << %(#{days}日(#{day_names[day_of_the_week]}))
       cal << %(</td>)
@@ -138,6 +138,7 @@ module TimerosterLineHelper
       cal << %(</tr>)
     end
     cal << %(</tbody>)
+    cal << %(</table>)
     cal << %(</div>)
   end 
 end
