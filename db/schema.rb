@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120725134259) do
 
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "time_rosters", :force => true do |t|
     t.date     "work_date"
     t.time     "going_work_time"
