@@ -1,24 +1,2 @@
 <%= render 'form' %>
-
-<table class="table"> 
-  <thead>
-    <tr>
-      <th>Work date</th>
-      <th>Going work time</th>
-      <th>Quit work time</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-  <% @test.each do |time_roster| %>
-    <tr>
-      <td><%= time_roster.work_date %></td>
-      <td><%= time_roster.going_work_time.strftime('%H:%M:%S').to_s%></td>
-      <td><%= time_roster.quit_work_time.strftime('%H:%M:%S').to_s %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= raw(time_caltable)%>
