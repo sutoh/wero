@@ -23,6 +23,8 @@ Wero::Application.routes.draw do
   
   root :to => "timeroster_line#index"
   
+  match '(/:year(/:month))' => "timeroster_line#index", :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  
   devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
