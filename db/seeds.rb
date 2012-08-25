@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+test = TimeRoster.create([ work_date: '2012/8/25 00:00:00', going_work_time: '2012/8/25 00:00:00',quit_work_time: '2012/8/25 00:00:00' ])
+user = User.find(1)
+line = TimerosterLine.create([ user_id: user, time_roster_id: test])
