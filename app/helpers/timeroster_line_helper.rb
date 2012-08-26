@@ -28,9 +28,12 @@ module TimerosterLineHelper
       :show_month_header => true,
       :year => (Time.zone || Time).now.year,
       :month => (Time.zone || Time).now.month,
-      :month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
-      :previous_month_text => nil,
-      :next_month_text => nil
+      :month_name_text => month_text((Time.zone || Time).now),
+      :previous_month_text => month_text((Time.zone || Time).now.prev_month),
+      :next_month_text => month_text((Time.zone || Time).now.next_month),
+      #:month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
+      #:previous_month_text => nil,
+      #:next_month_text => nil
     }
     options = defaults.merge options
  

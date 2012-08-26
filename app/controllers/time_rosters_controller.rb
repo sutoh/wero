@@ -40,23 +40,36 @@ class TimeRostersController < ApplicationController
   # POST /time_rosters
   # POST /time_rosters.json
   def create
-    @time_roster = TimeRoster.new(params[:time_roster])
-
-    respond_to do |format|
+    @form_data = params[:time_roster]
+    @work_date = @form_data["work_date(1i)"] + "-" + @form_data["work_date(2i)"] + "-" + @form_data["work_date(3i)"]
+    @going_work_time = @form_data["going_work_time"]
+    @quit_work_time = @form_data["quit_work_time"]
+    
+    if TimeRoster.exists?(['work_date like ?', "%#{@work_date}%"])
+      redirect_to :controller => "time_rosters", :action => "index" 
+      @time_roster = TimeRoster.find(:all, :conditions => {:work_date => @work_date})
+      if @time_roster.update_attributes({:going_work_time => @going_work_time, :quit_work_time => @quit_work_time})  
+        redirect_to :controller => "time_rosters", :action => "index" 
+      end
+    else
+      @time_roster = TimeRoster.new(params[:time_roster])
       if @time_roster.save
-        format.html { redirect_to @time_roster, notice: 'Time roster was successfully created.' }
-        format.json { render json: @time_roster, status: :created, location: @time_roster }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @time_roster.errors, status: :unprocessable_entity }
+        @timeroster_line = @time_roster.build_timeroster_line
+        @timeroster_line.user = current_user
+        if @timeroster_line.save
+          redirect_to :controller => "timeroster_line", :action => "index"
+        end
       end
     end
+
+
+
   end
 
   # PUT /time_rosters/1
   # PUT /time_rosters/1.json
   def update
-    @time_roster = TimeRoster.find(params[:id])
+    @time_roster = TimeRoster.find(params[:time_roster])
 
     respond_to do |format|
       if @time_roster.update_attributes(params[:time_roster])

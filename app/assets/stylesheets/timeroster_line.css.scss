@@ -1,6 +1,6 @@
 #calculator {
   background: white top center no-repeat;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px 0;
   width: 420px;
   height: 250px;
 }
@@ -59,4 +59,12 @@ fieldset.quittime {
   font: 30px Georgia, Times, serif;
   color: #413C32;
   background-color: white;
+}
+.week0 {
+  background-color: rgb(254,153,204);
+  color: red;
+}
+.week6 {
+  background-color: rgb(204,255,255);
+  color: blue;
 }

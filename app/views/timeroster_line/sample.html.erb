@@ -1,0 +1,85 @@
+<div id="et-table">
+	<table class="et-calendar-month-header table ct-calendar" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr>
+				<td colspan="2" class="ct-month-nav ct-previous-month">@previous_month_text</td>
+				<td colspan="6" class="ct-month-name">@month_name_text</td>
+				<td colspan="2" class="ct-month-nav ct-next-month">@next_month_text</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table id="et-calendar" class="table table-bordered dataTable" cellpadding="0" cellspacing="0">
+		<thead>
+			<tr>
+				<th class="ct-working_date-header">日付</th>
+				<th colspan="3" class="ct-wroking_time-header">就業時間</th>
+				<th>実働</th>
+				<th>欠時</th>
+				<th>普通深</th>
+				<th>休日出</th>
+				<th>休日深</th>
+				<th>備考</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% 
+				counter => 1
+				first = Date.civil(options[@year], options[@month], 1).strftime("%d").to_i
+    			last = Date.civil(options[@year], options[@month], -1).strftime("%d").to_i
+				day_of_the_week = 0
+				
+				first.step(last).each do |days| 
+					day_of_the_week = Date.civil(options[@year],options[@month],days).wday
+					range = Date.civil(options[@year],options[@month],days)
+      				day_going_time = TimeRoster.where(:work_date => range) 	
+					
+					concat "<tr style=\""
+					if day_of_the_week == 0
+						concat "background-color: rgb(254,153,204); color: red;"
+					elsif day_of_the_week == 6
+						concat "background-color: rgb(204,255,255); color: blue;"
+					end
+					concat "\" >"
+			%>
+					<td class="et-days" style="text-align: center;">
+			<%
+						concat days + "日"
+			%>
+					</td>
+					<td class="et-going-work-table">
+			<%
+						unless day_going_time[0] == nil
+							concat day_going_time[0].going_work_time.strftime("%H:%M")
+						end
+			%>	
+					</td>)
+      				<td class="et-tilda">〜</td>
+					<td class="et-quit-work-time">
+			<%
+				      	unless day_going_time[0] == nil
+        					concat day_going_time[0].quit_work_time.strftime("%H:%M")
+        				end
+        	%>
+					</td>
+					<td>
+			<%
+				      	unless day_going_time[0] == nil
+        					jitudo_time = (day_going_time[0].quit_work_time - day_going_time[0].going_work_time) / 3600
+        					concat jitudo_time.round(1)
+					    end
+			%>
+					</td>
+					<td>/td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>)
+				</tr>
+			<% end %>
+ 			
+
+
+		</tbody>
+	</table>
+</div>

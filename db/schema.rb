@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120725134259) do
 
   create_table "timeroster_lines", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "timeroster_id"
+    t.integer  "time_roster_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
